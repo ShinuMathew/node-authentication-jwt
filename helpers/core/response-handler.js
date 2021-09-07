@@ -6,8 +6,8 @@ class ResponseHandler {
 
     }
 
-    replySuccess(res) {
-
+    replySuccess(res, message, statusCode) {
+        res.json(message).status(statusCode);
     }
 
     replyError(res, err) {

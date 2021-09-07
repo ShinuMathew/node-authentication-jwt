@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Express = require('express'),
     cors = require('cors'),    
     PostRoutes = require('./lib/routes/posts/post-routes'),

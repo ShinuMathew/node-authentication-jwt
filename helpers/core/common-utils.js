@@ -8,6 +8,10 @@ class CommonUtils {
         // await bcrypt.hash(password, 10)  /* generates a salt of 'n' rounds automatically based on the second arg */      
         return hashedPassword.trim();
     }
+
+    async comparePassword(enteredPassword, actualPassword) {
+        return await bcrypt.compare(enteredPassword, actualPassword);
+    }
 }
 
 module.exports = CommonUtils;
