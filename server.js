@@ -1,8 +1,13 @@
-require('dotenv').config()
 const Express = require('express'),
-    cors = require('cors'),    
+    cors = require('cors'),
     PostRoutes = require('./lib/routes/posts/post-routes'),
-    AuthRoutes = require('./lib/routes/auth/auth-routes');
+    AuthRoutes = require('./lib/routes/auth/auth-routes'),
+    CommonUtils = require('./helpers/core/common-utils'),
+    AuthMiddleware = require('./lib/middleware/auth-middleware');
+
+require('dotenv').config({
+    path: `${new CommonUtils().getWorkingDirectory()}.env`
+});
 
 const app = Express();
 
@@ -17,8 +22,9 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/post',PostRoutes)
-app.use('/auth',AuthRoutes)
+let authMiddleWare = new AuthMiddleware()
+app.use('/post', authMiddleWare.authenticateToken, PostRoutes)
+app.use('/auth', AuthRoutes)
 
 
 app.listen(PORT, () => console.log(`Server started at PORT : ${PORT}`))

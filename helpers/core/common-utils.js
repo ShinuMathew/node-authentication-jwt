@@ -12,6 +12,11 @@ class CommonUtils {
     async comparePassword(enteredPassword, actualPassword) {
         return await bcrypt.compare(enteredPassword, actualPassword);
     }
+
+    getWorkingDirectory() {
+        let _dir = process.cwd();        
+        return `${_dir.split("NodeAuthentication")[0]}/NodeAuthentication/`
+    }
 }
 
 module.exports = CommonUtils;

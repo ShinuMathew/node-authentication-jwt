@@ -7,14 +7,15 @@ class ResponseHandler {
     }
 
     replySuccess(res, message, statusCode) {
-        res.json(message).status(statusCode);
+        res.status(statusCode)
+        res.json(message)
     }
 
     replyError(res, err) {
         if(!err.statusCode)
             err = Error.UnexpectedErrorOccurred;
-           
-        res.json(err).status(err.statusCode)
+        res.status(err.statusCode)
+        res.json(err)
     }
 }
 
