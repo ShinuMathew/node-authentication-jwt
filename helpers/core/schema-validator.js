@@ -20,6 +20,18 @@ class SchemaValidator {
             next()
         }
     }
+
+    validateParam(options, req, res, next, schema) {
+        const { error, value } = schema.validate(req.params)        
+        if (error) {            
+            let errorMsg = _.cloneDeep(Errors.IncorrectRequestParam)
+            errorMsg.message = `Validation Error : ${error.details.map(err => err.message).join(', ')}`            
+            return this.responseHandler.replyError(res, errorMsg)           
+        } else {
+            req.params = value
+            next()
+        }
+    }
 }
 
 module.exports = SchemaValidator
