@@ -4,7 +4,8 @@
   "description": "Simple Node Express authentication app with Mongo Db",
   "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js --dbType=local",
+    "devStartServer": "nodemon server.js --dbType=local",
+    "devStartAuthServer": "nodemon auth-server.js --dbType=local",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shinu Mathew",
