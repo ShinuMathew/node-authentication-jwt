@@ -8,4 +8,7 @@
 ```
 * Create a similar token for `REFRESH_TOKEN_SECRET`
 * Store both `ACCESS_TOKEN_SECRET` & `REFRESH_TOKEN_SECRET` in the .env file in project root directory.
-* 
+* Start your mongo server locally at port 27017
+* run scripts :
+    * `npm run devStartServer` to start application server
+    * `npm run devStartAuthServer` to start auth server
