@@ -1,6 +1,7 @@
 const Express = require('express'),
     cors = require('cors'),
-    PostRoutes = require('./lib/routes/posts/post-routes'),    
+    PostRoutes = require('./lib/routes/posts/post-routes'), 
+    AuthRoutes = require('./lib/routes/auth/auth-routes'),   
     CommonUtils = require('./helpers/core/common-utils'),
     AuthMiddleware = require('./lib/middleware/auth-middleware'),
     logger = require('./helpers/logger/logger');
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 
 let authMiddleWare = new AuthMiddleware()
 app.use('/post', authMiddleWare.authenticateToken, PostRoutes)
+app.use('/auth', AuthRoutes)
 
 
 app.listen(PORT, () => logger.info(`Server started at PORT : ${PORT}`))
