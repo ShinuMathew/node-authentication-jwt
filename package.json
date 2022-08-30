@@ -2,10 +2,11 @@
   "name": "nodeauthentication",
   "version": "1.0.0",
   "description": "Simple Node Express authentication app with Mongo Db",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "devStartServer": "nodemon server.js --dbType=local",
     "devStartAuthServer": "nodemon auth-server.js --dbType=local",
+    "start": "node app.js --db_type=remote",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shinu Mathew",
