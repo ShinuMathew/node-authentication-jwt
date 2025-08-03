@@ -1,4 +1,4 @@
-FROM node:22
+FROM node:lts-jod
 # Uses Node 22 LTS with Alpine Linux for
 # smaller size and better security
 WORKDIR /usr/src/app
